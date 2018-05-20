@@ -12,16 +12,17 @@ import Note from './Note';
 
 export default class Main extends React.Component {
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       noteArray: [],
       noteText: '',
+      noteFinish: true
 
     }
   }
 
-  render() {
+  render () {
 
     let notes = this.state.noteArray.map((val, key) => {
       return <Note key={key} keyval={key} val={val}
@@ -63,8 +64,7 @@ export default class Main extends React.Component {
     );
   }
 
-  addNote() {
-    
+  addNote () {    
     if (this.state.noteText) {
 
       var d = new Date();
@@ -75,13 +75,14 @@ export default class Main extends React.Component {
         'note': this.state.noteText
       });
       this.setState({ noteArray: this.state.noteArray })
-      this.setState({ noteText: '' });
+      this.setState({ noteText: '' })
+      this.setState({ noteFinish: true });
 
     }
 
   }
 
-  deleteNote(key) {
+  deleteNote (key) {
     this.state.noteArray.splice(key, 1);
     this.setState({ noteArray: this.state.noteArray })
   }

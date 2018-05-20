@@ -8,7 +8,7 @@ import {
 
 export default class Note extends React.Component {
   render() {
-    return (
+     return (
 
         <View key={this.props.keyval} style={styles.note}>
 
